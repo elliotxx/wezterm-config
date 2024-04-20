@@ -19,6 +19,7 @@ return {
     -- style 1:
     window_background_opacity = 0.9,
     macos_window_background_blur = 20,
+    adjust_window_size_when_changing_font_size = true,
     -- style 2:
     -- background = {
     --     {
@@ -48,7 +49,7 @@ return {
     window_padding = {
         left = 5,
         right = 10,
-        top = 12,
+        top = 10,
         bottom = 7,
     },
     window_close_confirmation = 'NeverPrompt',

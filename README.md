@@ -140,8 +140,8 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV<
 
 | Keys                               | Action                                           |
 | ---------------------------------- | ------------------------------------------------ |
-| <kbd>SUPER</kbd>+<kbd>\\</kbd>     | `SplitVertical` <sub>(CurrentPaneDomain)</sub>   |
-| <kbd>SUPER_REV</kbd>+<kbd>\\</kbd> | `SplitHorizontal` <sub>(CurrentPaneDomain)</sub> |
+| <kbd>SUPER</kbd>+<kbd>\\</kbd>     | `SplitHorizontal` <sub>(CurrentPaneDomain)</sub> |
+| <kbd>SUPER_REV</kbd>+<kbd>\\</kbd> | `SplitVertical` <sub>(CurrentPaneDomain)</sub>   |
 
 ##### Panes: Zoom+Close Pane
 
@@ -159,6 +159,15 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV<
 | <kbd>SUPER_REV</kbd>+<kbd>h</kbd> | Move to Pane (Left)     |
 | <kbd>SUPER_REV</kbd>+<kbd>l</kbd> | Move to Pane (Right)    |
 | <kbd>SUPER_REV</kbd>+<kbd>p</kbd> | Swap with selected Pane |
+
+&nbsp;
+
+#### Font Size
+
+| Keys                          | Action             |
+| ----------------------------- | ------------------ |
+| <kbd>SUPER</kbd>+<kbd>=</kbd> | `IncreaseFontSize` |
+| <kbd>SUPER</kbd>+<kbd>-</kbd> | `DecreaseFontSize` |
 
 &nbsp;
 

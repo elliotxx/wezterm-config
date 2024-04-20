@@ -7,7 +7,7 @@ local mod = {}
 
 if platform.is_mac then
     mod.SUPER = 'SUPER'
-    mod.SUPER_REV = 'SUPER|CTRL'
+    mod.SUPER_REV = 'SUPER|SHIFT'
 elseif platform.is_win or platform.is_linux then
     mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
     mod.SUPER_REV = 'ALT|CTRL'
@@ -119,12 +119,12 @@ local keys = {
     -- panes: split panes
     {
         key = [[\]],
-        mods = mod.SUPER,
+        mods = mod.SUPER_REV,
         action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
     },
     {
         key = [[\]],
-        mods = mod.SUPER_REV,
+        mods = mod.SUPER,
         action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
     },
 
@@ -142,6 +142,12 @@ local keys = {
         mods = mod.SUPER_REV,
         action = act.PaneSelect({ alphabet = '1234567890', mode = 'SwapWithActiveKeepFocus' }),
     },
+
+    -- font_size
+    -- Increases the font size of the current window by 10%
+    { key = '=', mods = mod.SUPER, action = act.IncreaseFontSize },
+    -- Decreases the font size of the current window by 10%
+    { key = '-', mods = mod.SUPER, action = act.DecreaseFontSize },
 
     -- key-tables --
     -- resizes fonts
