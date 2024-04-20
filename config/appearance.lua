@@ -10,7 +10,10 @@ return {
     webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
     -- color scheme
-    colors = colors,
+    -- style 1:
+    -- colors = colors,
+    -- style 2:
+    color_scheme = "Dracula (Official)",
 
     -- background
     -- style 1:
