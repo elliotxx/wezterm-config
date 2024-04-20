@@ -8,6 +8,8 @@ return {
     front_end = 'WebGpu',
     webgpu_power_preference = 'HighPerformance',
     webgpu_preferred_adapter = gpu_adapters:pick_best(),
+    initial_rows = 40,
+    initial_cols = 140,
 
     -- color scheme
     -- style 1:

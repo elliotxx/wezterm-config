@@ -44,6 +44,8 @@ local keys = {
             end),
         }),
     },
+    { key = 'q', mods = mod.SUPER,     action = wezterm.action.QuitApplication },
+
 
     -- copy/paste --
     -- { key = 'c', mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
@@ -195,7 +197,7 @@ local mouse_bindings = {
     -- Ctrl-click will open the link under the mouse cursor
     {
         event = { Up = { streak = 1, button = 'Left' } },
-        mods = 'CTRL',
+        mods = mod.SUPER,
         action = act.OpenLinkAtMouseCursor,
     },
 }
