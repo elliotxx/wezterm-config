@@ -18,40 +18,40 @@
 
 ### Features
 
-- [**Background Image Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/backdrops.lua)
+-   [**Background Image Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/backdrops.lua)
 
-  Uses `wezterm.read_dir` to scan the `backdrops` directory for images.
+    Uses `wezterm.read_dir` to scan the `backdrops` directory for images.
 
-  > See: [key bindings](#background-images) for usage
+    > See: [key bindings](#background-images) for usage
 
-- [**GPU Adapter Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/gpu_adapter.lua)
+-   [**GPU Adapter Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/gpu_adapter.lua)
 
-  > :bulb: Only works if the [`front_end`](https://github.com/KevinSilvester/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
+    > :bulb: Only works if the [`front_end`](https://github.com/KevinSilvester/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
 
-  A small utility to select the best GPU + Adapter (graphics API) combo for your machine.
+    A small utility to select the best GPU + Adapter (graphics API) combo for your machine.
 
-  GPU + Adapter combo is selected based on the following criteria:
+    GPU + Adapter combo is selected based on the following criteria:
 
-  1.  <details>
-      <summary>Best GPU available</summary>
+    1.  <details>
+        <summary>Best GPU available</summary>
 
-      `Discrete` > `Integrated` > `Other` (for `wgpu`'s OpenGl implementation on Discrete GPU) > `Cpu`
-      </details>
+        `Discrete` > `Integrated` > `Other` (for `wgpu`'s OpenGl implementation on Discrete GPU) > `Cpu`
+        </details>
 
-  2.  <details>
-      <summary>Best graphics API available (based off my very scientific scroll a big log file in Neovim test 😁)</summary>
+    2.  <details>
+        <summary>Best graphics API available (based off my very scientific scroll a big log file in Neovim test 😁)</summary>
 
-      > :bulb:<br>
-      > The available graphics API choices change based on your OS.<br>
-      > These options correspond to the APIs the `wgpu` crate (which powers WezTerm's gui in `WebGpu` mode)<br>
-      > currenly has support implemented for.<br>
-      > See: <https://github.com/gfx-rs/wgpu#supported-platforms> for more info
+        > :bulb:<br>
+        > The available graphics API choices change based on your OS.<br>
+        > These options correspond to the APIs the `wgpu` crate (which powers WezTerm's gui in `WebGpu` mode)<br>
+        > currenly has support implemented for.<br>
+        > See: <https://github.com/gfx-rs/wgpu#supported-platforms> for more info
 
-      - Windows: `Dx12` > `Vulkan` > `OpenGl`
-      - Linux: `Vulkan` > `OpenGl`
-      - Mac: `Metal`
+        -   Windows: `Dx12` > `Vulkan` > `OpenGl`
+        -   Linux: `Vulkan` > `OpenGl`
+        -   Mac: `Metal`
 
-      </details>
+        </details>
 
 ---
 
@@ -59,17 +59,17 @@
 
 Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV</kbd>(super reversed) keys.<br>
 
-- On MacOs:
-  - <kbd>SUPER</kbd> ⇨ <kbd>Super</kbd>
-  - <kbd>SUPER_REV</kbd> ⇨ <kbd>Super</kbd>+<kbd>Ctrl</kbd>
-- On Windows and Linux
-  - <kbd>SUPER</kbd> ⇨ <kbd>Alt</kbd>
-  - <kbd>SUPER_REV</kbd> ⇨ <kbd>Alt</kbd>+<kbd>Ctrl</kbd>
+-   On MacOs:
+    -   <kbd>SUPER</kbd> ⇨ <kbd>Super</kbd>
+    -   <kbd>SUPER_REV</kbd> ⇨ <kbd>Super</kbd>+<kbd>Ctrl</kbd>
+-   On Windows and Linux
+    -   <kbd>SUPER</kbd> ⇨ <kbd>Alt</kbd>
+    -   <kbd>SUPER_REV</kbd> ⇨ <kbd>Alt</kbd>+<kbd>Ctrl</kbd>
 
 > To avoid confusion when switching between different OS and to avoid conflicting<br>
 > with OS's built-in keyboard shortcuts.
 
-- On all platforms: <kbd>LEADER</kbd> ⇨ <kbd>SUPER_REV</kbd>+<kbd>Space</kbd>
+-   On all platforms: <kbd>LEADER</kbd> ⇨ <kbd>SUPER_REV</kbd>+<kbd>Space</kbd>
 
 #### Miscellaneous/Useful
 
@@ -89,10 +89,10 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV<
 
 #### Copy+Paste
 
-| Keys                                          | Action               |
-| --------------------------------------------- | -------------------- |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> | Copy to Clipborad    |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> | Paste from Clipborad |
+| Keys                          | Action               |
+| ----------------------------- | -------------------- |
+| <kbd>SUPER</kbd>+<kbd>c</kbd> | Copy to Clipborad    |
+| <kbd>Ctrl</kbd>+<kbd>v</kbd>  | Paste from Clipborad |
 
 &nbsp;
 
@@ -114,6 +114,15 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV<
 | <kbd>SUPER</kbd>+<kbd>]</kbd>     | Previous Tab   |
 | <kbd>SUPER_REV</kbd>+<kbd>[</kbd> | Move Tab Left  |
 | <kbd>SUPER_REV</kbd>+<kbd>]</kbd> | Move Tab Right |
+| <kbd>SUPER</kbd>+<kbd>1</kbd>     | Move Tab 1     |
+| <kbd>SUPER</kbd>+<kbd>2</kbd>     | Move Tab 2     |
+| <kbd>SUPER</kbd>+<kbd>3</kbd>     | Move Tab 3     |
+| <kbd>SUPER</kbd>+<kbd>4</kbd>     | Move Tab 4     |
+| <kbd>SUPER</kbd>+<kbd>5</kbd>     | Move Tab 5     |
+| <kbd>SUPER</kbd>+<kbd>6</kbd>     | Move Tab 6     |
+| <kbd>SUPER</kbd>+<kbd>7</kbd>     | Move Tab 7     |
+| <kbd>SUPER</kbd>+<kbd>8</kbd>     | Move Tab 8     |
+| <kbd>SUPER</kbd>+<kbd>9</kbd>     | Move Tab 9     |
 
 &nbsp;
 
@@ -198,7 +207,7 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV<
 
 ### References/Inspirations
 
-- <https://github.com/rxi/lume>
-- <https://github.com/catppuccin/wezterm>
-- <https://github.com/wez/wezterm/discussions/628#discussioncomment-1874614>
-- <https://github.com/wez/wezterm/discussions/628#discussioncomment-5942139>
+-   <https://github.com/rxi/lume>
+-   <https://github.com/catppuccin/wezterm>
+-   <https://github.com/wez/wezterm/discussions/628#discussioncomment-1874614>
+-   <https://github.com/wez/wezterm/discussions/628#discussioncomment-5942139>

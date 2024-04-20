@@ -63,6 +63,17 @@ local keys = {
     { key = '[', mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
     { key = ']', mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
 
+    -- SUPER + number to activate that tab
+    { key = '1', mods = mod.SUPER,     action = act.ActivateTab(0) },
+    { key = '2', mods = mod.SUPER,     action = act.ActivateTab(1) },
+    { key = '3', mods = mod.SUPER,     action = act.ActivateTab(2) },
+    { key = '4', mods = mod.SUPER,     action = act.ActivateTab(3) },
+    { key = '5', mods = mod.SUPER,     action = act.ActivateTab(4) },
+    { key = '6', mods = mod.SUPER,     action = act.ActivateTab(5) },
+    { key = '7', mods = mod.SUPER,     action = act.ActivateTab(6) },
+    { key = '8', mods = mod.SUPER,     action = act.ActivateTab(7) },
+    { key = '9', mods = mod.SUPER,     action = act.ActivateTab(8) },
+
     -- window --
     -- spawn windows
     { key = 'n', mods = mod.SUPER,     action = act.SpawnWindow },
