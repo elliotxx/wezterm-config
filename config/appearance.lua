@@ -11,6 +11,10 @@ return {
     initial_rows = 40,
     initial_cols = 140,
 
+    -- cursor style
+    default_cursor_style = 'BlinkingBlock',
+    cursor_blink_rate = 500,
+
     -- color scheme
     -- style 1:
     -- colors = colors,

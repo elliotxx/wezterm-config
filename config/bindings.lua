@@ -44,41 +44,45 @@ local keys = {
             end),
         }),
     },
-    { key = 'q', mods = mod.SUPER,     action = wezterm.action.QuitApplication },
+    { key = 'q',          mods = mod.SUPER,     action = wezterm.action.QuitApplication },
+    -- Make Super-Left equivalent to Alt-b which many line editors interpret as backward-word
+    { key = 'LeftArrow',  mods = 'OPT',         action = act.SendString '\x1bb' },
+    -- Make Super-Right equivalent to Alt-f; forward-word
+    { key = 'RightArrow', mods = 'OPT',         action = act.SendString '\x1bf' },
 
 
     -- copy/paste --
     -- { key = 'c', mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
     -- { key = 'v', mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
-    { key = 'c', mods = mod.SUPER,     action = act.CopyTo('Clipboard') },
-    { key = 'v', mods = mod.SUPER,     action = act.PasteFrom('Clipboard') },
+    { key = 'c',          mods = mod.SUPER,     action = act.CopyTo('Clipboard') },
+    { key = 'v',          mods = mod.SUPER,     action = act.PasteFrom('Clipboard') },
 
     -- tabs --
     -- tabs: spawn+close
-    { key = 't', mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
-    { key = 't', mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'WSL:Ubuntu' }) },
-    { key = 'w', mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
+    { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
+    { key = 't',          mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'WSL:Ubuntu' }) },
+    { key = 'w',          mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
 
     -- tabs: navigation
-    { key = '[', mods = mod.SUPER,     action = act.ActivateTabRelative(-1) },
-    { key = ']', mods = mod.SUPER,     action = act.ActivateTabRelative(1) },
-    { key = '[', mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
-    { key = ']', mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
+    { key = '[',          mods = mod.SUPER,     action = act.ActivateTabRelative(-1) },
+    { key = ']',          mods = mod.SUPER,     action = act.ActivateTabRelative(1) },
+    { key = '[',          mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
+    { key = ']',          mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
 
     -- SUPER + number to activate that tab
-    { key = '1', mods = mod.SUPER,     action = act.ActivateTab(0) },
-    { key = '2', mods = mod.SUPER,     action = act.ActivateTab(1) },
-    { key = '3', mods = mod.SUPER,     action = act.ActivateTab(2) },
-    { key = '4', mods = mod.SUPER,     action = act.ActivateTab(3) },
-    { key = '5', mods = mod.SUPER,     action = act.ActivateTab(4) },
-    { key = '6', mods = mod.SUPER,     action = act.ActivateTab(5) },
-    { key = '7', mods = mod.SUPER,     action = act.ActivateTab(6) },
-    { key = '8', mods = mod.SUPER,     action = act.ActivateTab(7) },
-    { key = '9', mods = mod.SUPER,     action = act.ActivateTab(8) },
+    { key = '1',          mods = mod.SUPER,     action = act.ActivateTab(0) },
+    { key = '2',          mods = mod.SUPER,     action = act.ActivateTab(1) },
+    { key = '3',          mods = mod.SUPER,     action = act.ActivateTab(2) },
+    { key = '4',          mods = mod.SUPER,     action = act.ActivateTab(3) },
+    { key = '5',          mods = mod.SUPER,     action = act.ActivateTab(4) },
+    { key = '6',          mods = mod.SUPER,     action = act.ActivateTab(5) },
+    { key = '7',          mods = mod.SUPER,     action = act.ActivateTab(6) },
+    { key = '8',          mods = mod.SUPER,     action = act.ActivateTab(7) },
+    { key = '9',          mods = mod.SUPER,     action = act.ActivateTab(8) },
 
     -- window --
     -- spawn windows
-    { key = 'n', mods = mod.SUPER,     action = act.SpawnWindow },
+    { key = 'n',          mods = mod.SUPER,     action = act.SpawnWindow },
 
     -- background controls --
     {

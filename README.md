@@ -73,17 +73,20 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV<
 
 #### Miscellaneous/Useful
 
-| Keys                          | Action                                      |
-| ----------------------------- | ------------------------------------------- |
-| <kbd>F1</kbd>                 | `ActivateCopyMode`                          |
-| <kbd>F2</kbd>                 | `ActivateCommandPalette`                    |
-| <kbd>F3</kbd>                 | `ShowLauncher`                              |
-| <kbd>F4</kbd>                 | `ShowLauncher` <sub>(tabs only)</sub>       |
-| <kbd>F5</kbd>                 | `ShowLauncher` <sub>(workspaces only)</sub> |
-| <kbd>F11</kbd>                | `ToggleFullScreen`                          |
-| <kbd>F12</kbd>                | `ShowDebugOverlay`                          |
-| <kbd>SUPER</kbd>+<kbd>f</kbd> | Search Text                                 |
-| <kbd>SUPER</kbd>+<kbd>u</kbd> | Open URL                                    |
+| Keys                           | Action                                      |
+| ------------------------------ | ------------------------------------------- |
+| <kbd>F1</kbd>                  | `ActivateCopyMode`                          |
+| <kbd>F2</kbd>                  | `ActivateCommandPalette`                    |
+| <kbd>F3</kbd>                  | `ShowLauncher`                              |
+| <kbd>F4</kbd>                  | `ShowLauncher` <sub>(tabs only)</sub>       |
+| <kbd>F5</kbd>                  | `ShowLauncher` <sub>(workspaces only)</sub> |
+| <kbd>F11</kbd>                 | `ToggleFullScreen`                          |
+| <kbd>F12</kbd>                 | `ShowDebugOverlay`                          |
+| <kbd>SUPER</kbd>+<kbd>f</kbd>  | Search Text                                 |
+| <kbd>SUPER</kbd>+<kbd>u</kbd>  | Open URL                                    |
+| <kbd>SUPER</kbd>+<kbd>q</kbd>  | Quit Wezterm                                |
+| <kbd>Option</kbd>+<kbd>←</kbd> | Backward Word                               |
+| <kbd>Option</kbd>+<kbd>→</kbd> | Forward Word                                |
 
 &nbsp;
 
