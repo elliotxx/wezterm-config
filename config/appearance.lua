@@ -17,15 +17,15 @@ return {
 
     -- color scheme
     -- style 1:
-    -- colors = colors,
+    colors = colors,
     -- style 2:
-    color_scheme = "Dracula (Official)",
+    -- color_scheme = "Dracula (Official)",
 
     -- background
     -- style 1:
-    window_background_opacity = 0.9,
+    window_background_opacity = 0.8,
     macos_window_background_blur = 20,
-    adjust_window_size_when_changing_font_size = true,
+    adjust_window_size_when_changing_font_size = false,
     -- style 2:
     -- background = {
     --     {
