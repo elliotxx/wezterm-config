@@ -55,6 +55,24 @@
 
 ---
 
+### Installation
+On MacOS:
+```bash
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code
+git clone https://github.com/elliotxx/wezterm.git ~/.config/wezterm
+```
+
+On Windows:
+```bash
+scoop bucket add nerd-fonts
+scoop install firacode
+git clone https://github.com/elliotxx/wezterm.git ~/.config/wezterm
+```
+
+References:
+- https://github.com/tonsky/FiraCode/wiki/Installing
+
 ### All Key Binbdings
 
 Most of the key bindings revolve around a <kbd>SUPER</kbd> and a <kbd>SUPER_REV</kbd>(super reversed) keys.<br>
