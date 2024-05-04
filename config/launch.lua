@@ -6,7 +6,7 @@ local options = {
 }
 
 if platform.is_win then
-    options.default_prog = { 'pwsh' }
+    options.default_prog = { 'powershell' }
     options.launch_menu = {
         { label = 'PowerShell Core',    args = { 'pwsh' } },
         { label = 'PowerShell Desktop', args = { 'powershell' } },
