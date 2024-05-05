@@ -60,14 +60,14 @@ On MacOS:
 ```bash
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
-git clone https://github.com/elliotxx/wezterm.git ~/.config/wezterm
+git clone https://github.com/elliotxx/wezterm-config.git ~/.config/wezterm
 ```
 
 On Windows:
 ```bash
 scoop bucket add nerd-fonts
 scoop install firacode
-git clone https://github.com/elliotxx/wezterm.git ~/.config/wezterm
+git clone https://github.com/elliotxx/wezterm-config.git ~/.config/wezterm
 ```
 
 References:
