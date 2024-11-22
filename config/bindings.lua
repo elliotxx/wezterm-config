@@ -59,7 +59,7 @@ local keys = {
 
     -- tabs --
     -- tabs: spawn+close
-    { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
+    { key = 't',          mods = mod.SUPER,     action = act.SpawnCommandInNewTab { cwd = wezterm.home_dir, domain = 'DefaultDomain' } },
     { key = 't',          mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'WSL:Ubuntu' }) },
     { key = 'w',          mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
 
@@ -82,7 +82,7 @@ local keys = {
 
     -- window --
     -- spawn windows
-    { key = 'n',          mods = mod.SUPER,     action = act.SpawnWindow },
+    { key = 'n',          mods = mod.SUPER,     action = act.SpawnCommandInNewWindow { cwd = wezterm.home_dir, domain = 'DefaultDomain' } },
 
     -- background controls --
     {
