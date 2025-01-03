@@ -1,3 +1,6 @@
+-- Reference: 
+--  - https://gist.github.com/gsuuon/5511f0aa10c10c6cbd762e0b3e596b71
+--  - https://github.com/wez/wezterm/discussions/628#discussioncomment-5735102
 local wezterm = require("wezterm")
 
 local color_default_fg_light = wezterm.color.parse("#cacaca") -- 💩
