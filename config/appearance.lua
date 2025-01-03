@@ -23,8 +23,8 @@ return {
 
     -- background
     -- style 1:
-    window_background_opacity = 0.95,
-    macos_window_background_blur = 30,
+    window_background_opacity = 0.82,
+    macos_window_background_blur = 23,
     adjust_window_size_when_changing_font_size = false,
     -- style 2:
     -- background = {
