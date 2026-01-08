@@ -2,8 +2,7 @@ local wezterm = require('wezterm')
 
 -- Inspired by https://github.com/wez/wezterm/discussions/628#discussioncomment-1874614
 
-local GLYPH_SEMI_CIRCLE_LEFT = '' -- nf.ple_left_half_circle_thick
-local GLYPH_SEMI_CIRCLE_RIGHT = '' -- nf.ple_right_half_cirlce_thick
+local GLYPH_SEPARATOR = '│' -- box drawing light vertical
 local GLYPH_CIRCLE = '' -- nf.fa_circle
 local GLYPH_ADMIN = '󰞀' -- nf.md_shield_half_full
 
@@ -11,11 +10,18 @@ local M = {}
 
 local __cells__ = {}
 
-local colors = {
-   default = { bg = '#45475a', fg = '#1c1b19', },
-   is_active = { bg = '#7FB4CA', fg = '#11111b', },
-   hover = { bg = '#587d8c', fg = '#1c1b19', },
+-- 从主题文件读取 tab_title 颜色
+local current_theme_name = require('config.theme')
+local theme = require('colors.' .. current_theme_name)
+local tab_bar = theme.colors.tab_bar
+local bg_color = tab_bar and tab_bar.background or '#45475a'
+local colors = theme.tab_title or {
+   default = { bg = bg_color, fg = '#1c1b19' },
+   is_active = { bg = bg_color, fg = '#11111b' },
+   hover = { bg = bg_color, fg = '#1c1b19' },
 }
+local unseen_output_color = theme.tab_title and theme.tab_title.unseen_output or '#FFA066'
+local separator_color = tab_bar and tab_bar.active_tab and tab_bar.active_tab.bg_color or '#7fb4ca'
 
 local _set_process_name = function(s)
    local a = string.gsub(s, '(.*[/\\])(.*)', '%2')
@@ -59,7 +65,7 @@ local _push = function(bg, fg, attribute, text)
 end
 
 M.setup = function()
-   wezterm.on('format-tab-title', function(tab, _tabs, _panes, _config, hover, max_width)
+   wezterm.on('format-tab-title', function(tab, tabs, _panes, _config, hover, max_width)
       __cells__ = {}
 
       local bg
@@ -70,13 +76,13 @@ M.setup = function()
 
       if tab.is_active then
          bg = colors.is_active.bg
-         fg = colors.is_active.fg
+         fg = tab_bar.active_tab.fg_color or colors.is_active.fg
       elseif hover then
          bg = colors.hover.bg
-         fg = colors.hover.fg
+         fg = tab_bar.inactive_tab_hover and tab_bar.inactive_tab_hover.fg_color or colors.hover.fg
       else
          bg = colors.default.bg
-         fg = colors.default.fg
+         fg = tab_bar.inactive_tab.fg_color or colors.default.fg
       end
 
       local has_unseen_output = false
@@ -87,27 +93,29 @@ M.setup = function()
          end
       end
 
-      -- Left semi-circle
-      _push(fg, bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_LEFT)
+      -- Title
+      _push(bg, fg, { Intensity = 'Bold' }, ' ')
 
       -- Admin Icon
       if is_admin then
-         _push(bg, fg, { Intensity = 'Bold' }, ' ' .. GLYPH_ADMIN)
+         _push(bg, fg, { Intensity = 'Bold' }, GLYPH_ADMIN .. ' ')
       end
 
-      -- Title
-      _push(bg, fg, { Intensity = 'Bold' }, ' ' .. title)
+      _push(bg, fg, { Intensity = 'Bold' }, title)
 
       -- Unseen output alert
       if has_unseen_output then
-         _push(bg, '#FFA066', { Intensity = 'Bold' }, ' ' .. GLYPH_CIRCLE)
+         _push(bg, unseen_output_color, { Intensity = 'Bold' }, ' ' .. GLYPH_CIRCLE)
       end
 
       -- Right padding
       _push(bg, fg, { Intensity = 'Bold' }, ' ')
 
-      -- Right semi-circle
-      _push(fg, bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_RIGHT)
+      -- Right separator (only if not the last tab)
+      if tab.tab_index ~= #tabs then
+         _push(bg, tab_bar.inactive_tab.fg_color, { Intensity = 'Normal' }, ' ')
+         _push(bg, separator_color, { Intensity = 'Normal' }, GLYPH_SEPARATOR)
+      end
 
       return __cells__
    end)

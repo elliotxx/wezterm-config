@@ -70,4 +70,11 @@ return {
         macos_window_background_blur = 10,
         active_titlebar_bg = '#fdf6e3',
     },
+
+    tab_title = {
+        default = { bg = '#93a1a1', fg = '#073642' },
+        is_active = { bg = '#268bd2', fg = '#fdf6e3' },
+        hover = { bg = '#839496', fg = '#073642' },
+        unseen_output = '#cb4b16',
+    },
 }
