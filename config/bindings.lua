@@ -163,7 +163,7 @@ local keys = {
         action = act.ActivateKeyTable({
             name = 'resize_font',
             one_shot = false,
-            timemout_miliseconds = 1000,
+            timeout_milliseconds = 1000,
         }),
     },
     -- resize panes
@@ -173,7 +173,7 @@ local keys = {
         action = act.ActivateKeyTable({
             name = 'resize_pane',
             one_shot = false,
-            timemout_miliseconds = 1000,
+            timeout_milliseconds = 1000,
         }),
     },
 }

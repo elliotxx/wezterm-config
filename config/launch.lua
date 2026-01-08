@@ -14,7 +14,7 @@ if platform.is_win then
         { label = 'Nushell',            args = { 'nu' } },
         {
             label = 'Git Bash',
-            args = { 'C:\\Users\\kevin\\scoop\\apps\\git\\current\\bin\\bash.exe' },
+            args = { os.getenv('USERPROFILE') .. '\\scoop\\shims\\bash.exe' },
         },
     }
 elseif platform.is_mac then
