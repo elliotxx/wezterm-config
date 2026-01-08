@@ -100,14 +100,48 @@ require('events.new-tab-button').setup()
 
 事件处理器内部使用 `wezterm.on()` 注册具体的钩子。
 
-## 颜色方案
+## 主题系统
 
-支持两种颜色方案方式：
+### 主题切换
 
-1. **内联颜色表**: 在 `appearance.lua` 中设置 `color_scheme = "Dracula (Official)"`
-2. **自定义颜色**: 取消注释 `colors = colors` 使用 `colors/custom.lua` 中的定义
+主题通过 `config/theme.lua` 指定当前使用的主题名称：
 
-`:set_files()` 方法中的 `PATH_SEP` 会根据平台自动设置为 `\`(Windows) 或 `/`(Unix)。
+```lua
+return 'solarized_light'  -- 可选: 'solarized_light', 'dracula', 'custom'
+```
+
+修改这个文件即可切换主题，配套的外观配置（透明度、模糊、标题栏颜色）会自动应用。
+
+### 主题文件结构
+
+主题文件位于 `colors/` 目录，使用 Lua 格式：
+
+```lua
+return {
+    name = 'Solarized Light',
+
+    colors = {
+        foreground = '#657b83',
+        background = '#fdf6e3',
+        ansi = { ... },
+        brights = { ... },
+        tab_bar = { ... },
+        -- ... 其他颜色配置
+    },
+
+    appearance = {
+        window_background_opacity = 0.96,
+        macos_window_background_blur = 10,
+        active_titlebar_bg = '#fdf6e3',
+    },
+}
+```
+
+`appearance.lua` 会动态读取指定主题的 `colors` 表和 `appearance` 配置，并合并到 WezTerm 配置中。
+
+### 创建新主题
+
+要添加新主题，在 `colors/` 创建新的 Lua 文件，包含 `colors` 和可选的 `appearance` 部分，然后更新 `config/theme.lua` 引用。
 
 ## 全局状态
 

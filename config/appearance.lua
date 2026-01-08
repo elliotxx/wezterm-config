@@ -1,6 +1,11 @@
 local wezterm = require('wezterm')
 local gpu_adapters = require('utils.gpu_adapter')
-local colors = require('colors.custom')
+
+-- 动态加载主题
+local current_theme_name = require('config.theme')
+local theme = require('colors.' .. current_theme_name)
+local colors = theme.colors
+local app_config = theme.appearance or {}
 
 return {
     animation_fps = 120,
@@ -15,29 +20,14 @@ return {
     default_cursor_style = 'BlinkingBlock',
     cursor_blink_rate = 500,
 
-    -- color scheme
-    -- style 1:
-    -- colors = colors,
-    -- style 2:
-    color_scheme = "Dracula (Official)",
+    -- 使用动态加载的主题配色
+    colors = colors,
 
     -- background
-    -- style 1:
-    window_background_opacity = 0.82,
-    macos_window_background_blur = 23,
+    -- 使用主题提供的 appearance 配置，并设置默认值
+    window_background_opacity = app_config.window_background_opacity or 0.9,
+    macos_window_background_blur = app_config.macos_window_background_blur or 15,
     adjust_window_size_when_changing_font_size = false,
-    -- style 2:
-    -- background = {
-    --     {
-    --         source = { File = wezterm.GLOBAL.background },
-    --     },
-    --     {
-    --         source = { Color = colors.background },
-    --         height = '100%',
-    --         width = '100%',
-    --         opacity = 0.96,
-    --     },
-    -- },
 
     -- scrollbar
     enable_scroll_bar = false,
@@ -60,9 +50,7 @@ return {
     },
     window_close_confirmation = 'NeverPrompt',
     window_frame = {
-        active_titlebar_bg = '#090909',
-        -- font = fonts.font,
-        -- font_size = fonts.font_size,
+        active_titlebar_bg = app_config.active_titlebar_bg or '#000000',
     },
     inactive_pane_hsb = {
         saturation = 0.9,
