@@ -105,4 +105,13 @@ return {
       hover = { bg = '#587d8c', fg = '#1c1b19' },
       unseen_output = '#FFA066',
    },
+
+   right_status = {
+      date_fg = mocha.peach,
+      date_bg = 'rgba(0, 0, 0, 0.4)',
+      battery_fg = mocha.yellow,
+      battery_bg = 'rgba(0, 0, 0, 0.4)',
+      separator_fg = mocha.sapphire,
+      separator_bg = 'rgba(0, 0, 0, 0.4)',
+   },
 }

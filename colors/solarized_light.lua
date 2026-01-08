@@ -78,4 +78,13 @@ return {
         hover = { bg = '#a0aec0', fg = '#1a202c' },
         unseen_output = '#c53030',
     },
+
+    right_status = {
+        date_fg = '#657b83',
+        date_bg = 'rgba(238, 232, 213, 0.5)',
+        battery_fg = '#859900',
+        battery_bg = 'rgba(238, 232, 213, 0.5)',
+        separator_fg = '#93a1a1',
+        separator_bg = 'rgba(238, 232, 213, 0.5)',
+    },
 }

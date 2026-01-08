@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 
 -- Inspired by https://github.com/wez/wezterm/discussions/628#discussioncomment-1874614
 
-local GLYPH_SEPARATOR = '│' -- box drawing light vertical
+local GLYPH_SEPARATOR = '|' -- box drawing light vertical
 local GLYPH_CIRCLE = '' -- nf.fa_circle
 local GLYPH_ADMIN = '󰞀' -- nf.md_shield_half_full
 
@@ -10,36 +10,30 @@ local M = {}
 
 local __cells__ = {}
 
--- 从主题文件读取 tab_title 颜色
+-- 从主题文件读取配色
 local current_theme_name = require('config.theme')
 local theme = require('colors.' .. current_theme_name)
 local tab_bar = theme.colors.tab_bar
 
--- 根据 theme 名称适配配色
-local is_solarized_light = current_theme_name == 'solarized_light'
+-- Tab 标题配色，优先使用主题配置，fallback 到 tab_bar 颜色
+local colors = theme.tab_title or {
+   default = {
+      bg = tab_bar and tab_bar.inactive_tab and tab_bar.inactive_tab.bg_color or '#45475a',
+      fg = tab_bar and tab_bar.inactive_tab and tab_bar.inactive_tab.fg_color or '#cdd6f4',
+   },
+   is_active = {
+      bg = tab_bar and tab_bar.active_tab and tab_bar.active_tab.bg_color or '#7fb4ca',
+      fg = tab_bar and tab_bar.active_tab and tab_bar.active_tab.fg_color or '#11111b',
+   },
+   hover = {
+      bg = tab_bar and tab_bar.inactive_tab_hover and tab_bar.inactive_tab_hover.bg_color or '#587d8c',
+      fg = tab_bar and tab_bar.inactive_tab_hover and tab_bar.inactive_tab_hover.fg_color or '#cdd6f4',
+   },
+   unseen_output = '#FFA066',
+}
 
-local bg_color
-local colors
-
-if is_solarized_light then
-   -- Solarized Light 适配配色
-   bg_color = '#eee8d5'  -- 浅米色背景
-   colors = {
-      default = { bg = bg_color, fg = '#657b83' },
-      is_active = { bg = '#839496', fg = '#fdf6e3' },
-      hover = { bg = '#dcd3ba', fg = '#586e75' },
-   }
-else
-   -- 默认/其他配色
-   bg_color = tab_bar and tab_bar.background or '#45475a'
-   colors = theme.tab_title or {
-      default = { bg = bg_color, fg = '#1c1b19' },
-      is_active = { bg = bg_color, fg = '#11111b' },
-      hover = { bg = bg_color, fg = '#1c1b19' },
-   }
-end
-local unseen_output_color = theme.tab_title and theme.tab_title.unseen_output or '#FFA066'
-local separator_color = is_solarized_light and '#839496' or (tab_bar and tab_bar.active_tab and tab_bar.active_tab.bg_color or '#7fb4ca')
+local unseen_output_color = colors.unseen_output or '#FFA066'
+local separator_color = colors.is_active and colors.is_active.bg or '#7fb4ca'
 
 local _set_process_name = function(s)
    local a = string.gsub(s, '(.*[/\\])(.*)', '%2')
@@ -131,7 +125,7 @@ M.setup = function()
 
       -- Right separator (only if not the last tab)
       if tab.tab_index ~= #tabs then
-         _push(bg, tab_bar.inactive_tab.fg_color, { Intensity = 'Normal' }, ' ')
+         _push(bg, tab_bar.inactive_tab and tab_bar.inactive_tab.fg_color or fg, { Intensity = 'Normal' }, ' ')
          _push(bg, separator_color, { Intensity = 'Normal' }, GLYPH_SEPARATOR)
       end
 

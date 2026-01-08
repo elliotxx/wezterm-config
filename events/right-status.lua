@@ -6,6 +6,20 @@ local M = {}
 
 local SEPARATOR_CHAR = nf.oct_dash .. ' '
 
+-- 从主题文件读取配色
+local current_theme_name = require('config.theme')
+local theme = require('colors.' .. current_theme_name)
+
+-- 右状态栏配色，优先使用主题配置
+local colors = theme.right_status or {
+   date_fg = '#cdd6f4',
+   date_bg = 'rgba(0, 0, 0, 0.4)',
+   battery_fg = '#a6e3a1',
+   battery_bg = 'rgba(0, 0, 0, 0.4)',
+   separator_fg = '#74c7ec',
+   separator_bg = 'rgba(0, 0, 0, 0.4)',
+}
+
 local discharging_icons = {
    nf.md_battery_10,
    nf.md_battery_20,
@@ -29,15 +43,6 @@ local charging_icons = {
    nf.md_battery_charging_80,
    nf.md_battery_charging_90,
    nf.md_battery_charging,
-}
-
-local colors = {
-   date_fg = '#fab387',
-   date_bg = 'rgba(0, 0, 0, 0.4)',
-   battery_fg = '#f9e2af',
-   battery_bg = 'rgba(0, 0, 0, 0.4)',
-   separator_fg = '#74c7ec',
-   separator_bg = 'rgba(0, 0, 0, 0.4)',
 }
 
 local __cells__ = {} -- wezterm FormatItems (ref: https://wezfurlong.org/wezterm/config/lua/wezterm/format.html)
