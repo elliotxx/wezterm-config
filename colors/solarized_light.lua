@@ -1,68 +1,69 @@
 -- Solarized Light color scheme for WezTerm
 -- Based on Ethan Schoonover's Solarized color palette
+-- Enhanced contrast for better git diff visibility
 
 return {
     name = 'Solarized Light',
 
     colors = {
-        foreground = '#657b83',
+        foreground = '#4a5568',
         background = '#fdf6e3',
 
-        cursor_bg = '#657b83',
-        cursor_border = '#657b83',
+        cursor_bg = '#4a5568',
+        cursor_border = '#4a5568',
         cursor_fg = '#fdf6e3',
 
-        selection_bg = '#eee8d5',
-        selection_fg = '#657b83',
+        selection_bg = '#e0d9c5',
+        selection_fg = '#2d3748',
 
         ansi = {
-            '#073642', -- black (base02)
-            '#dc322f', -- red
-            '#859900', -- green
-            '#b58900', -- yellow
-            '#268bd2', -- blue
-            '#d33682', -- magenta
-            '#2aa198', -- cyan
-            '#eee8d5', -- white (base2)
+            '#1a202c', -- black (darker base02 for better contrast)
+            '#9b2c2c', -- red (very dark for deletions)
+            '#22543d', -- green (very dark for additions)
+            '#b7791f', -- yellow (slightly darker)
+            '#2b6cb0', -- blue (slightly darker for better readability)
+            '#97266d', -- magenta (deeper)
+            '#2c7a7b', -- cyan (deeper)
+            '#e2e8f0', -- white (lighter)
         },
 
         brights = {
-            '#002b36', -- bright black (base03)
-            '#cb4b16', -- bright red (orange)
-            '#586e75', -- bright green (base01)
-            '#839496', -- bright yellow (base0)
-            '#6c71c4', -- bright blue (violet)
-            '#b58900', -- bright magenta (yellow)
-            '#93a1a1', -- bright cyan (base1)
-            '#fdf6e3', -- bright white (base3)
+            '#171923', -- bright black (darker)
+            '#c53030', -- bright red (deep for deletions)
+            '#276749', -- bright green (deep for additions)
+            '#ecc94b', -- bright yellow (brighter)
+            '#4299e1', -- bright blue (brighter)
+            '#ed64a6', -- bright magenta (vibrant)
+            '#38b2ac', -- bright cyan (vibrant)
+            '#f7fafc', -- bright white (almost white)
         },
 
         tab_bar = {
-            background = '#eee8d5',
+            background = '#e2e8f0',
             active_tab = {
-                bg_color = '#268bd2',
+                bg_color = '#2b6cb0',
                 fg_color = '#fdf6e3',
             },
             inactive_tab = {
-                bg_color = '#93a1a1',
-                fg_color = '#073642',
+                bg_color = '#cbd5e0',
+                fg_color = '#2d3748',
             },
             inactive_tab_hover = {
-                bg_color = '#839496',
-                fg_color = '#073642',
+                bg_color = '#a0aec0',
+                fg_color = '#1a202c',
             },
             new_tab = {
-                bg_color = '#93a1a1',
-                fg_color = '#073642',
+                bg_color = '#cbd5e0',
+                fg_color = '#2d3748',
             },
             new_tab_hover = {
-                bg_color = '#839496',
-                fg_color = '#073642',
+                bg_color = '#a0aec0',
+                fg_color = '#1a202c',
             },
         },
 
-        split = '#93a1a1',
-        scrollbar_thumb = '#93a1a1',
+        split = '#cbd5e0',
+        scrollbar_thumb = '#a0aec0',
     },
 
     appearance = {
@@ -72,9 +73,9 @@ return {
     },
 
     tab_title = {
-        default = { bg = '#93a1a1', fg = '#073642' },
-        is_active = { bg = '#268bd2', fg = '#fdf6e3' },
-        hover = { bg = '#839496', fg = '#073642' },
-        unseen_output = '#cb4b16',
+        default = { bg = '#cbd5e0', fg = '#2d3748' },
+        is_active = { bg = '#2b6cb0', fg = '#fdf6e3' },
+        hover = { bg = '#a0aec0', fg = '#1a202c' },
+        unseen_output = '#c53030',
     },
 }
