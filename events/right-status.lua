@@ -45,7 +45,7 @@ local charging_icons = {
    nf.md_battery_charging,
 }
 
-local __cells__ = {} -- wezterm FormatItems (ref: https://wezfurlong.org/wezterm/config/lua/wezterm/format.html)
+local __cells__ = {} -- wezterm FormatItems (ref: https://wezterm.org/wezterm/config/lua/wezterm/format.html)
 
 ---@param text string
 ---@param icon string
@@ -71,7 +71,7 @@ local _set_date = function()
 end
 
 local _set_battery = function()
-   -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/battery_info.html
+   -- ref: https://wezterm.org/wezterm/config/lua/wezterm/battery_info.html
 
    local charge = ''
    local icon = ''

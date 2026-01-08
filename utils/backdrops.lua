@@ -1,14 +1,11 @@
 local wezterm = require('wezterm')
 local platform = require('utils.platform')()
-local colors = require('colors.custom')
+local umath = require('utils.math')
 
--- Seeding random numbers before generating for use
--- Known issue with lua math library
--- see: https://stackoverflow.com/questions/20154991/generating-uniform-random-numbers-in-lua
-math.randomseed(os.time())
-math.random()
-math.random()
-math.random()
+-- 动态加载当前主题
+local current_theme_name = require('config.theme')
+local theme = require('colors.' .. current_theme_name)
+local colors = theme.colors
 
 local PATH_SEP = platform.is_win and '\\' or '/'
 
@@ -46,8 +43,10 @@ end
 
 ---Override the current window options for background
 ---@private
----@param window any WezTerm Window see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+---@param window any WezTerm Window see: https://wezterm.org/config/lua/window/index.html
 function BackDrops:_set_opt(window)
+   local opacity = theme.appearance and theme.appearance.window_background_opacity or 0.96
+
    local opts = {
       background = {
          {
@@ -57,7 +56,7 @@ function BackDrops:_set_opt(window)
             source = { Color = colors.background },
             height = '100%',
             width = '100%',
-            opacity = 0.96,
+            opacity = opacity,
          },
       },
    }
@@ -65,7 +64,7 @@ function BackDrops:_set_opt(window)
 end
 
 ---Convert the `files` array to a table of `InputSelector` choices
----see: https://wezfurlong.org/wezterm/config/lua/keyassignment/InputSelector.html
+---see: https://wezterm.org/config/lua/keyassignment/InputSelector.html
 function BackDrops:choices()
    local choices = {}
    for idx, file in ipairs(self.files) do
@@ -80,7 +79,7 @@ end
 
 ---Select a random file and redefine the global `wezterm.GLOBAL.background` variable
 ---Pass in `Window` object to override the current window options
----@param window any? WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+---@param window any? WezTerm `Window` see: https://wezterm.org/wezterm/config/lua/window/index.html
 function BackDrops:random(window)
    self.current_idx = math.random(#self.files)
    wezterm.GLOBAL.background = self.files[self.current_idx]
@@ -91,7 +90,7 @@ function BackDrops:random(window)
 end
 
 ---Cycle the loaded `files` and select the next background
----@param window any WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+---@param window any WezTerm `Window` see: https://wezterm.org/config/lua/window/index.html
 function BackDrops:cycle_forward(window)
    if self.current_idx == #self.files then
       self.current_idx = 1
@@ -103,7 +102,7 @@ function BackDrops:cycle_forward(window)
 end
 
 ---Cycle the loaded `files` and select the previous background
----@param window any WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+---@param window any WezTerm `Window` see: https://wezterm.org/config/lua/window/index.html
 function BackDrops:cycle_back(window)
    if self.current_idx == 1 then
       self.current_idx = #self.files
@@ -115,7 +114,7 @@ function BackDrops:cycle_back(window)
 end
 
 ---Set a specific background from the `files` array
----@param window any WezTerm `Window` see: https://wezfurlong.org/wezterm/config/lua/window/index.html
+---@param window any WezTerm `Window` see: https://wezterm.org/config/lua/window/index.html
 ---@param idx number index of the `files` array
 function BackDrops:set_img(window, idx)
    if idx > #self.files or idx < 0 then
