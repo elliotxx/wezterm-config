@@ -14,14 +14,32 @@ local __cells__ = {}
 local current_theme_name = require('config.theme')
 local theme = require('colors.' .. current_theme_name)
 local tab_bar = theme.colors.tab_bar
-local bg_color = tab_bar and tab_bar.background or '#45475a'
-local colors = theme.tab_title or {
-   default = { bg = bg_color, fg = '#1c1b19' },
-   is_active = { bg = bg_color, fg = '#11111b' },
-   hover = { bg = bg_color, fg = '#1c1b19' },
-}
+
+-- 根据 theme 名称适配配色
+local is_solarized_light = current_theme_name == 'solarized_light'
+
+local bg_color
+local colors
+
+if is_solarized_light then
+   -- Solarized Light 适配配色
+   bg_color = '#eee8d5'  -- 浅米色背景
+   colors = {
+      default = { bg = bg_color, fg = '#657b83' },
+      is_active = { bg = '#839496', fg = '#fdf6e3' },
+      hover = { bg = '#dcd3ba', fg = '#586e75' },
+   }
+else
+   -- 默认/其他配色
+   bg_color = tab_bar and tab_bar.background or '#45475a'
+   colors = theme.tab_title or {
+      default = { bg = bg_color, fg = '#1c1b19' },
+      is_active = { bg = bg_color, fg = '#11111b' },
+      hover = { bg = bg_color, fg = '#1c1b19' },
+   }
+end
 local unseen_output_color = theme.tab_title and theme.tab_title.unseen_output or '#FFA066'
-local separator_color = tab_bar and tab_bar.active_tab and tab_bar.active_tab.bg_color or '#7fb4ca'
+local separator_color = is_solarized_light and '#839496' or (tab_bar and tab_bar.active_tab and tab_bar.active_tab.bg_color or '#7fb4ca')
 
 local _set_process_name = function(s)
    local a = string.gsub(s, '(.*[/\\])(.*)', '%2')
@@ -76,13 +94,13 @@ M.setup = function()
 
       if tab.is_active then
          bg = colors.is_active.bg
-         fg = tab_bar.active_tab.fg_color or colors.is_active.fg
+         fg = colors.is_active.fg
       elseif hover then
          bg = colors.hover.bg
-         fg = tab_bar.inactive_tab_hover and tab_bar.inactive_tab_hover.fg_color or colors.hover.fg
+         fg = colors.hover.fg
       else
          bg = colors.default.bg
-         fg = tab_bar.inactive_tab.fg_color or colors.default.fg
+         fg = colors.default.fg
       end
 
       local has_unseen_output = false

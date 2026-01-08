@@ -49,6 +49,21 @@ return {
     show_tab_index_in_tab_bar = false,
     switch_to_last_active_tab_when_closing_tab = true,
 
+    -- tab bar 背景色（适配 Solarized Light）
+    colors = {
+        tab_bar = {
+            background = '#eee8d5',
+            new_tab = {
+                bg_color = '#eee8d5',
+                fg_color = '#657b83',
+            },
+            new_tab_hover = {
+                bg_color = '#dcd3ba',
+                fg_color = '#586e75',
+            },
+        },
+    },
+
     -- window
     window_decorations = "RESIZE",
     window_padding = {
