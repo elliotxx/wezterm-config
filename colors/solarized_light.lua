@@ -18,8 +18,8 @@ return {
 
         ansi = {
             '#1a202c', -- black (darker base02 for better contrast)
-            '#9b2c2c', -- red (very dark for deletions)
-            '#22543d', -- green (very dark for additions)
+            '#c62828', -- red (vibrant red for deletions)
+            '#2e7d32', -- green (vibrant green for additions)
             '#b7791f', -- yellow (slightly darker)
             '#2b6cb0', -- blue (slightly darker for better readability)
             '#97266d', -- magenta (deeper)
@@ -29,8 +29,8 @@ return {
 
         brights = {
             '#171923', -- bright black (darker)
-            '#c53030', -- bright red (deep for deletions)
-            '#276749', -- bright green (deep for additions)
+            '#e53935', -- bright red (vibrant for deletions)
+            '#43a047', -- bright green (vibrant for additions)
             '#ecc94b', -- bright yellow (brighter)
             '#4299e1', -- bright blue (brighter)
             '#ed64a6', -- bright magenta (vibrant)
