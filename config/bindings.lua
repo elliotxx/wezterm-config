@@ -39,7 +39,6 @@ local keys = {
             },
             action = wezterm.action_callback(function(window, pane)
                 local url = window:get_selection_text_for_pane(pane)
-                wezterm.log_info('opening: ' .. url)
                 wezterm.open_with(url)
             end),
         }),

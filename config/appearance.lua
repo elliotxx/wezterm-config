@@ -22,12 +22,13 @@ return {
     default_cursor_style = 'BlinkingBlock',
     cursor_blink_rate = 500,
 
-    -- 当前使用内置配色方案 (推荐用于 git diff 等场景)
-    color_scheme = 'Solarized Light (Gogh)',
+    -- 内建颜色方案（可选：用于 terminal 颜色）
+    color_scheme = (current_theme_name == 'solarized_light' and 'Solarized Light (Gogh)') or
+                   (current_theme_name == 'dracula' and 'Dracula') or '',
 
-    -- background
-    window_background_opacity = 1.0,
-    macos_window_background_blur = 0,
+    -- background - 从主题读取或使用默认值
+    window_background_opacity = app_config.window_background_opacity or 1.0,
+    macos_window_background_blur = app_config.macos_window_background_blur or 0,
     adjust_window_size_when_changing_font_size = false,
 
     -- scrollbar
@@ -44,6 +45,18 @@ return {
     -- tab bar 配色，从主题文件读取
     colors = {
         tab_bar = theme_tab_bar,
+        -- 应用主题中的核心颜色
+        foreground = theme.colors.foreground,
+        background = theme.colors.background,
+        cursor_bg = theme.colors.cursor_bg,
+        cursor_border = theme.colors.cursor_border,
+        cursor_fg = theme.colors.cursor_fg,
+        selection_bg = theme.colors.selection_bg,
+        selection_fg = theme.colors.selection_fg,
+        scrollbar_thumb = theme.colors.scrollbar_thumb,
+        split = theme.colors.split,
+        ansi = theme.colors.ansi,
+        brights = theme.colors.brights,
     },
 
     -- window
