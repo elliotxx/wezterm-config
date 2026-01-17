@@ -17,25 +17,25 @@ return {
         selection_fg = '#2d3748',
 
         ansi = {
-            '#1a202c', -- black (darker base02 for better contrast)
-            '#c62828', -- red (vibrant red for deletions)
-            '#2e7d32', -- green (vibrant green for additions)
-            '#b7791f', -- yellow (slightly darker)
-            '#2b6cb0', -- blue (slightly darker for better readability)
-            '#97266d', -- magenta (deeper)
-            '#2c7a7b', -- cyan (deeper)
-            '#e2e8f0', -- white (lighter)
+            '#1a202c', -- black
+            '#ea580c', -- orange → 用于删除行
+            '#0066cc', -- blue → 用于新增行
+            '#92400e', -- yellow (元信息)
+            '#1e3a8a', -- deep blue (其他用途)
+            '#86198f', -- magenta (diff 片段标记 @@)
+            '#155e75', -- cyan
+            '#e2e8f0', -- white
         },
 
         brights = {
-            '#171923', -- bright black (darker)
-            '#e53935', -- bright red (vibrant for deletions)
-            '#43a047', -- bright green (vibrant for additions)
-            '#ecc94b', -- bright yellow (brighter)
-            '#4299e1', -- bright blue (brighter)
-            '#ed64a6', -- bright magenta (vibrant)
-            '#38b2ac', -- bright cyan (vibrant)
-            '#f7fafc', -- bright white (almost white)
+            '#171923', -- bright black
+            '#f97316', -- bright orange (鲜艳的橙色用于删除行)
+            '#0088ff', -- bright blue (高亮蓝色用于新增行)
+            '#ca8a04', -- bright yellow
+            '#3b82f6', -- bright blue
+            '#c026d3', -- bright magenta
+            '#0891b2', -- bright cyan
+            '#f7fafc', -- bright white
         },
 
         tab_bar = {
