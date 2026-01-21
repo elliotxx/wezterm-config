@@ -62,10 +62,10 @@ return {
     -- window
     window_decorations = "RESIZE",
     window_padding = {
-        left = 5,
-        right = 10,
-        top = 10,
-        bottom = 7,
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
     },
     window_close_confirmation = 'NeverPrompt',
     window_frame = {
