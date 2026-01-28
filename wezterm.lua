@@ -1,7 +1,5 @@
 local Config = require('config')
 
-require('utils.backdrops'):set_files():random()
-
 require('events.tab-title').setup()
 require('events.new-tab-button').setup()
 
