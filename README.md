@@ -69,19 +69,19 @@ If GitHub downloads are slow, run the same commands with a proxy:
 export https_proxy=http://127.0.0.1:7897 http_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897
 ```
 
-The installer downloads and installs Fira Code before linking this repository to
-`~/.config/wezterm`, which avoids WezTerm falling back to another font on a new
-machine.
+The installer downloads and installs Maple Mono NF CN before linking this
+repository to `~/.config/wezterm`, which avoids WezTerm falling back to another
+font on a new machine.
 
 On Windows:
 ```bash
-scoop bucket add nerd-fonts
-scoop install firacode
+# Install Maple Mono NF CN from the Maple Font releases first:
+# https://github.com/subframe7536/maple-font/releases
 git clone https://github.com/elliotxx/wezterm-config.git ~/.config/wezterm
 ```
 
 References:
-- https://github.com/tonsky/FiraCode/wiki/Installing
+- https://github.com/subframe7536/maple-font/releases
 
 ### All Key Binbdings
 

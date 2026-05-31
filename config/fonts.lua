@@ -2,11 +2,12 @@ local wezterm = require('wezterm')
 local platform = require('utils.platform')
 
 -- local font = 'JetBrainsMono Nerd Font'
-local font = 'Fira Code'
+local font = 'Maple Mono NF CN'
 local font_size = platform().is_mac and 12 or 9
 
 return {
     font = wezterm.font(font),
+    font_dirs = { '/Users/wolf/Library/Fonts' },
     font_size = font_size,
 
     --ref: https://wezterm.org/wezterm/config/lua/config/freetype_pcf_long_family_names.html#why-doesnt-wezterm-use-the-distro-freetype-or-match-its-configuration
