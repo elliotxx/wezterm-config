@@ -56,12 +56,22 @@
 ---
 
 ### Installation
-On MacOS:
+On macOS:
 ```bash
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
-git clone https://github.com/elliotxx/wezterm-config.git ~/.config/wezterm
+mkdir -p ~/workspace
+git clone https://github.com/elliotxx/wezterm-config.git ~/workspace/wezterm-config
+~/workspace/wezterm-config/install.sh
 ```
+
+If GitHub downloads are slow, run the same commands with a proxy:
+
+```bash
+export https_proxy=http://127.0.0.1:7897 http_proxy=http://127.0.0.1:7897 all_proxy=socks5://127.0.0.1:7897
+```
+
+The installer downloads and installs Fira Code before linking this repository to
+`~/.config/wezterm`, which avoids WezTerm falling back to another font on a new
+machine.
 
 On Windows:
 ```bash
